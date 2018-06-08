@@ -14,12 +14,12 @@ import java.util.List;
  *
  * @author Alumno
  */
-public class GestorPersona {
+public class GestorLector {
     private final LectorDao lectorDao;
     
     private TablaPersonas tb;
     
-    public GestorPersona(){
+    public GestorLector(){
         this.lectorDao = new LectorDaoImpEnMemoria();
     }   
     public void iniciar(){

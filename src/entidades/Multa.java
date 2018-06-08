@@ -14,6 +14,7 @@ import entidades.Prestamo;
  */
 public class Multa {
     private Date fecha;
+    private int cantidadDias;
     private Prestamo prestamo;
     private Cancelacion cancelacion;
     private Multa(){
@@ -48,4 +49,19 @@ public class Multa {
         this.fecha = fecha;
         this.prestamo = prestamo;
     }
+
+    public Multa(Date fecha, int cantidadDias, Prestamo prestamo) {
+        this.fecha = fecha;
+        this.cantidadDias = cantidadDias;
+        this.prestamo = prestamo;
+    }
+
+    public int getCantidadDias() {
+        return cantidadDias;
+    }
+
+    public void setCantidadDias(int cantidadDias) {
+        this.cantidadDias = cantidadDias;
+    }
+    
 }

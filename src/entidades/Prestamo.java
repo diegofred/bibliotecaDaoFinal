@@ -5,8 +5,6 @@
  */
 package entidades;
 
-import entidades.Lector;
-import entidades.Copia;
 import java.util.Date;
 
 /**
@@ -85,4 +83,9 @@ public class Prestamo {
             return true;
         }
     }
+    
+    public boolean estaFinalizado(){
+       return (fechaDevolucion != null);
+    }
+    
 }

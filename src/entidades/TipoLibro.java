@@ -46,7 +46,7 @@ public class TipoLibro {
     
     @Override
     public String toString(){
-        return "Nombre: " + this.nombre;
+        return this.nombre;
     }
     
     public String getNombre(){

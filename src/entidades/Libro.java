@@ -6,7 +6,6 @@
 package entidades;
 
 import java.util.ArrayList;
-import entidades.TipoLibro;
 
 /**
  *
@@ -103,12 +102,7 @@ public class Libro {
     
     @Override
     public String toString(){
-    return "Editorial: " + this.editorial +
-            "\nAño: "  + this.anio + 
-            "\nTitulo: " + this.titulo + 
-            "\nAutor: " + this.autor.toString() + 
-            "\nTipo de Libro: " + this.tipoLibro.getNombre() + 
-            "\nN° copias: " + this.copias.size();
+    return this.titulo;
     }
     
 }
