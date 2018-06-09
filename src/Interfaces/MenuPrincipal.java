@@ -17,10 +17,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
      * Creates new form MenuPrincipal
      */
     public MenuPrincipal() {
+        System.out.println("Por aca no deberia pasar");
         initComponents();
     }
 
     public MenuPrincipal(MenuPrincipalControlador controller) {
+       System.out.println("Pasando por consrtuctor con controller de parametro 0"+controller);
        initComponents();
        this.controller = controller;
     }
@@ -148,7 +150,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-      controller.opcionRegistrarLector();
+        System.out.println("HOola");
+        controller.opcionRegistrarLector();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
