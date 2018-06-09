@@ -16,8 +16,14 @@ public class MenuPrincipalControlador {
     MenuPrincipal pantallaMenuPrincipal;
     
     public void iniciar(){
-        pantallaMenuPrincipal = new MenuPrincipal();
+        pantallaMenuPrincipal = new MenuPrincipal(this);
         pantallaMenuPrincipal.setVisible(true);
+    }
+
+    public void opcionRegistrarLector() {
+        RegistrarLector rl = new RegistrarLector();
+        rl.iniciar();
+        
     }
     
     

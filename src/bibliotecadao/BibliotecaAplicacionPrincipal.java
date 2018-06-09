@@ -5,18 +5,21 @@
  */
 package bibliotecadao;
 
+import Control.MenuPrincipalControlador;
+
 /**
  *
  * @author Docente
  */
-public class BibliotecaDao {
+public class BibliotecaAplicacionPrincipal {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
        CargaInicial.cargarDatosIniciales();
-       
+       MenuPrincipalControlador mpc = new MenuPrincipalControlador();
+       mpc.iniciar();
     }
     
 }

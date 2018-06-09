@@ -128,6 +128,7 @@ public class CargaInicial {
         Lector lectorUno = new Lector();
         lectorUno.setApellido("Navarro");
         lectorUno.setNombre("Lautaro");
+        lectorUno.setDni(12345678);
         
         lectorDao.guardarLector(lectorUno);
         

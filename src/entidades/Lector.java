@@ -14,10 +14,16 @@ import java.util.Date;
  * @author Alumno
  */
 public class Lector {
-
+    private static int siguienteNumeroLector = 1;
+            
+            
+            
     private int dni;
     private String apellido;
     private String nombre;
+    private int numeroLector= siguienteNumeroLector++;
+    
+    
    /// private Multa multa;
     private ArrayList<Prestamo> prestamos = new ArrayList<>();
 
@@ -25,6 +31,11 @@ public class Lector {
         this.dni = dni;
         this.apellido = apellido;
         this.nombre= nombre;
+    
+    }
+
+    public int getNumeroLector() {
+        return numeroLector;
     }
     
     public Lector(){

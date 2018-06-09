@@ -32,5 +32,15 @@ public class LectorDaoImpEnMemoria implements Dao.LectorDao{
         listaLectores.remove(p);
     }
 
+    @Override
+    public Lector obtenerLectorPorDni(int dni) {
+        for (Lector lector : listaLectores) {
+            if (lector.getDni()== dni) {
+                return lector;
+            }
+        }
+        return null;//no lo encontro
+    }
+
     
 }
