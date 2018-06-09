@@ -16,6 +16,7 @@ public class MenuPrincipalControlador {
     MenuPrincipal pantallaMenuPrincipal;
     
     public void iniciar(){
+        System.out.println("Iniciar En menu prin contro");
         pantallaMenuPrincipal = new MenuPrincipal(this);
         pantallaMenuPrincipal.setVisible(true);
     }
