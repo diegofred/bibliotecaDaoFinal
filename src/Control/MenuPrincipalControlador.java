@@ -23,7 +23,10 @@ public class MenuPrincipalControlador {
     public void opcionRegistrarLector() {
         RegistrarLector rl = new RegistrarLector();
         rl.iniciar();
-        
+    }
+    public void opcionABMAutor() {
+        GestorAutor rl = new GestorAutor();
+        rl.iniciar();
     }
     
     
