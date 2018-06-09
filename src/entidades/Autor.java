@@ -5,6 +5,9 @@
  */
 package entidades;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -29,7 +32,11 @@ public class Autor {
     public String toString(){
         return "\nNombre:" + this.nombre + "\nNacionalidad: " + this.nacionalidad + "\nFecha de Nacimiento: " + this.fechaNacimiento;
     }
-
+    public String printFechaNacimiento(){
+        DateFormat df = new SimpleDateFormat("yyyy/MM/dd");       
+        String fechaString = df.format(this.fechaNacimiento);
+        return fechaString;
+    }
     public String getNombre() {
         return nombre;
     }

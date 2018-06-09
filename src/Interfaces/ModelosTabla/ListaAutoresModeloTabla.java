@@ -45,7 +45,7 @@ public class ListaAutoresModeloTabla extends AbstractTableModel{
                resultado = autor.getNacionalidad();
                break;
            case 2:
-               resultado = autor.getFechaNacimiento();
+               resultado = autor.printFechaNacimiento();
                break;
        }
        
