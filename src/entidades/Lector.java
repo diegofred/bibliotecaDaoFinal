@@ -14,14 +14,11 @@ import java.util.Date;
  * @author Alumno
  */
 public class Lector {
-    private static int siguienteNumeroLector = 1;
-            
-            
-            
+
     private int dni;
     private String apellido;
     private String nombre;
-    private int numeroLector= siguienteNumeroLector++;
+    private int numeroLector;
     
     
    /// private Multa multa;
@@ -36,6 +33,10 @@ public class Lector {
 
     public int getNumeroLector() {
         return numeroLector;
+    }
+
+    public void setNumeroLector(int numeroLector) {
+        this.numeroLector = numeroLector;
     }
     
     public Lector(){

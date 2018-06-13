@@ -15,4 +15,5 @@ public interface LectorDao {
     void guardarLector(Lector p);
     void eliminarLector(Lector p);
     Lector obtenerLectorPorDni(int dni);
+
 }

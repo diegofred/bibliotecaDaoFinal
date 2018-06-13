@@ -16,7 +16,8 @@ import java.util.List;
 public class LectorDaoImpEnMemoria implements Dao.LectorDao{
 
     private static final List <Lector> listaLectores = new ArrayList();
-    
+    private static int siguienteNumeroLector = 1;
+            
     @Override
     public List<Lector> obtenerLectores() {
         return listaLectores;
@@ -24,6 +25,7 @@ public class LectorDaoImpEnMemoria implements Dao.LectorDao{
 
     @Override
     public void guardarLector(Lector p) {
+        p.setNumeroLector(siguienteNumeroLector++);
         listaLectores.add(p);
     }
 
