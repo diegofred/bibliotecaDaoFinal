@@ -11,7 +11,7 @@ import java.util.List;
  * @author Alumno
  */
 public interface TipoLibroDao {
-    List<TipoLibro> obtenerLibros();
-    void guardarLibros(TipoLibro p);
-    void eliminarLibros(TipoLibro p);
+    List<TipoLibro> obtenerTiposLibros();
+    void guardarTipoLibro(TipoLibro p);
+    void eliminarTipoLibro(TipoLibro p);
 }

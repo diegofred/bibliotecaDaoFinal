@@ -100,6 +100,27 @@ public class Libro {
         }
     }
     
+    public int copiasDisponibles(){
+        int copiasDisponibles = 0;
+        for (Copia copia : copias) {
+            if (copia.getEstado().equals(Copia.EN_BIBLIOTECA)) {
+                copiasDisponibles++;
+            }
+        }
+        return copiasDisponibles;
+    }
+    
+    public Copia obtenerSiguienteCopiaDisponible(){
+        Copia elegida = null;
+        for (Copia copia : copias) {
+            if (copia.getEstado().equals(Copia.EN_BIBLIOTECA)) {
+                elegida = copia;
+                break;
+            }
+        }
+        return elegida;
+    }
+    
     @Override
     public String toString(){
     return this.titulo;

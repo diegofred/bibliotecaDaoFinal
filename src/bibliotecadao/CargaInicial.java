@@ -64,11 +64,11 @@ public class CargaInicial {
         //TIPOS DE LIBRO
         TipoLibro tp1 = new TipoLibro();
         tp1.setNombre("Novela");
-        tipoLibroDao.guardarLibros(tp1);
+        tipoLibroDao.guardarTipoLibro(tp1);
         
         TipoLibro tp2 = new TipoLibro();
         tp2.setNombre("Teatro");
-        tipoLibroDao.guardarLibros(tp2);
+        tipoLibroDao.guardarTipoLibro(tp2);
         
 
         

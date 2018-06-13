@@ -5,9 +5,12 @@
  */
 package entidades;
 
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import static javafx.scene.input.KeyCode.L;
 
 /**
  *
@@ -31,6 +34,17 @@ public class Lector {
     
     }
 
+    
+    public List<Prestamo> prestamosVigentes(){
+        List<Prestamo> prestamosVigentes = new ArrayList();
+        for (Prestamo p : prestamos) {
+            if (!p.estaFinalizado()) {
+                prestamosVigentes.add(p);
+            }
+        }
+        return prestamosVigentes;
+    }
+    
     public int getNumeroLector() {
         return numeroLector;
     }
@@ -122,4 +136,10 @@ public class Lector {
 
         return true;
     }
+
+    @Override
+    public String toString() {
+       return  nombre + " " + apellido;
+    }
+    
 }

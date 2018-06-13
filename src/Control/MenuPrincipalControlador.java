@@ -29,6 +29,11 @@ public class MenuPrincipalControlador {
         GestorAutor rl = new GestorAutor();
         rl.iniciar();
     }
+
+    public void opcionRegistrarPrestamos() {
+      GestorPrestamo gp = new GestorPrestamo();
+      gp.iniciar();
+    }
     
     
     

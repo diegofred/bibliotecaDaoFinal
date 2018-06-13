@@ -30,7 +30,7 @@ public class Autor {
     
     @Override
     public String toString(){
-        return "\nNombre:" + this.nombre + "\nNacionalidad: " + this.nacionalidad + "\nFecha de Nacimiento: " + this.fechaNacimiento;
+        return this.nombre ;
     }
     public String printFechaNacimiento(){
         DateFormat df = new SimpleDateFormat("yyyy/MM/dd");       
