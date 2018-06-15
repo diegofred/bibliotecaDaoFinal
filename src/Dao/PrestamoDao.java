@@ -14,4 +14,5 @@ public interface PrestamoDao {
     List<Prestamo> obtenerPrestamos();
     void guardarPrestamo(Prestamo p);
     void eliminarPrestamo(Prestamo p);
+    List<Prestamo> obtenerPrestamosNoDevueltos();
 }

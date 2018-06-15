@@ -30,5 +30,17 @@ public class PrestamoDaoImpEnMemoria implements Dao.PrestamoDao {
     public void eliminarPrestamo(Prestamo p) {
         listaPrestamos.remove(p);
     }
+
+    @Override
+    public List<Prestamo> obtenerPrestamosNoDevueltos() {
+        List<Prestamo> prestamos = this.obtenerPrestamos();
+        List<Prestamo> prestamosNoDevueltos = new ArrayList() ;
+        for (Prestamo prestamo : prestamos) {
+            if (prestamo.getFechaDevolucion() == null) {
+                prestamosNoDevueltos.add(prestamo);
+            }
+        }
+        return prestamosNoDevueltos;
+    }
     
 }

@@ -182,9 +182,9 @@ public class CargaInicial {
         lectorUno.agregarPrestamo(prestamoUno);
         prestamoDao.guardarPrestamo(prestamoUno);
         
+
         
    
-        
         
         
         

@@ -35,6 +35,12 @@ public class MenuPrincipalControlador {
       gp.iniciar();
     }
     
+    public void opcionDevolver(){
+        GestorDevolverPrestamo gvp = new GestorDevolverPrestamo();
+        gvp.iniciar();
+    
+    }
+    
     
     
     

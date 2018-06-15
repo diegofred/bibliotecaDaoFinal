@@ -5,6 +5,7 @@
  */
 package entidades;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -77,7 +78,11 @@ public class Prestamo {
     }
 
     public boolean correspondeMulta() {
-        if (this.fechaPrestamo.after(this.fechaDevolucion)) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(this.getFechaPrestamo()); 
+        calendar.add(Calendar.DAY_OF_YEAR, 30);
+        Date fechaDevolucionEsperada =  calendar.getTime();
+        if (fechaDevolucionEsperada.after(this.fechaDevolucion)) {
             return false;
         } else {
             return true;
