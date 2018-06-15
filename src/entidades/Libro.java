@@ -5,6 +5,7 @@
  */
 package entidades;
 
+import Dao.EnMemoria.CopiaDaoImpEnMemoria;
 import java.util.ArrayList;
 
 /**
@@ -95,7 +96,10 @@ public class Libro {
         int largo = this.copias.size();
         Copia copia = new Copia();
         for (int i = largo ; i < largo + cantidad ; i++) {
-            copia = new Copia(i,Copia.EN_BIBLIOTECA,this);
+            copia = new Copia();
+            copia.setLibro(this);
+            copia.setEstado(Copia.EN_BIBLIOTECA);
+            copia.setIdentificador((new CopiaDaoImpEnMemoria().siguienteIdentificador(copia)));
             this.copias.add(copia);
         }
     }

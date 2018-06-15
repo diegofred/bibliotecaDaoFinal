@@ -6,6 +6,7 @@
 package Control;
 
 import Interfaces.MenuPrincipal;
+import Interfaces.RegistrarCopias.TablaCopias;
 
 /**
  *
@@ -16,7 +17,6 @@ public class MenuPrincipalControlador {
     MenuPrincipal pantallaMenuPrincipal;
     
     public void iniciar(){
-        System.out.println("Iniciar En menu prin contro");
         pantallaMenuPrincipal = new MenuPrincipal(this);
         pantallaMenuPrincipal.setVisible(true);
     }
@@ -24,13 +24,13 @@ public class MenuPrincipalControlador {
     public void opcionRegistrarLector() {
         RegistrarLector rl = new RegistrarLector();
         rl.iniciar();
-    }
-    public void opcionABMAutor() {
-        GestorAutor rl = new GestorAutor();
-        rl.iniciar();
+        
     }
     
-    
+    public void tablaCopia(){
+        GestorABMCopia tc = new GestorABMCopia();
+        tc.iniciar();
+    }
     
     
     

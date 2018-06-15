@@ -16,7 +16,7 @@ public class Copia {
     public final static String EN_REPARACION = "En reparacion";
     public final static String EN_RETRASO = "En retraso";
     
-    private int identificador;
+    private String identificador;
     private String estado;
     private Libro libro;
     
@@ -24,21 +24,21 @@ public class Copia {
     
     }
     
-    public Copia(int identificador, String estado){
+    public Copia(String identificador, String estado){
         this.identificador = identificador;
         this.estado = estado;
     }
-        public Copia(int identificador, String estado, Libro libro){
+        public Copia(String identificador, String estado, Libro libro){
         this.identificador = identificador;
         this.estado = estado;
         this.libro = libro;
     }
 
-    public int getIdentificador() {
+    public String getIdentificador() {
         return identificador;
     }
 
-    public void setIdentificador(int identificador) {
+    public void setIdentificador(String identificador) {
         this.identificador = identificador;
     }
 

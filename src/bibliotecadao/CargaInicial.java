@@ -64,13 +64,24 @@ public class CargaInicial {
         //TIPOS DE LIBRO
         TipoLibro tp1 = new TipoLibro();
         tp1.setNombre("Novela");
+        tp1.setCodigo("No");
         tipoLibroDao.guardarLibros(tp1);
         
         TipoLibro tp2 = new TipoLibro();
         tp2.setNombre("Teatro");
+        tp2.setCodigo("TE");
         tipoLibroDao.guardarLibros(tp2);
         
 
+        TipoLibro tp3 = new TipoLibro();
+        tp3.setNombre("Poesia");
+        tp3.setCodigo("Po");
+        tipoLibroDao.guardarLibros(tp3);
+        
+        TipoLibro tp4 = new TipoLibro();
+        tp4.setNombre("Ni idea");
+        tp4.setCodigo("NA");
+        tipoLibroDao.guardarLibros(tp4);
         
         
         
@@ -100,29 +111,37 @@ public class CargaInicial {
         
         //COPIAS
         Copia c1 = new Copia();
-        c1.setIdentificador(001);
+         c1.setLibro(l1);
+        c1.setIdentificador(copiaDao.siguienteIdentificador(c1));
         c1.setEstado(Copia.PRESTADO);
-        c1.setLibro(l1);
+       
         libroDao.agregarCopias(c1, l1);
         
         Copia c2 = new Copia();
-        c2.setIdentificador(002);
-        c2.setEstado(Copia.EN_BIBLIOTECA);
         c2.setLibro(l2);
+        c2.setIdentificador(copiaDao.siguienteIdentificador(c2));
+        c2.setEstado(Copia.EN_BIBLIOTECA);
+        
         libroDao.agregarCopias(c2, l2);
         
         Copia c3 = new Copia();
-        c3.setIdentificador(001);
-        c3.setEstado(Copia.EN_REPARACION);
         c3.setLibro(l3);
+        c3.setIdentificador(copiaDao.siguienteIdentificador(c3));
+        c3.setEstado(Copia.EN_REPARACION);
+        
         libroDao.agregarCopias(c3, l3);
         
         Copia c4 = new Copia();
-        c4.setIdentificador(002);
+          c4.setLibro(l3);
+        c4.setIdentificador(copiaDao.siguienteIdentificador(c4));
         c4.setEstado(Copia.PRESTADO);
-        c4.setLibro(l3);
+      
         libroDao.agregarCopias(c4, l3);
         
+        copiaDao.guardarCopia(c1);
+        copiaDao.guardarCopia(c2);
+        copiaDao.guardarCopia(c3);
+        copiaDao.guardarCopia(c4);
         //Lectores
         
         Lector lectorUno = new Lector();

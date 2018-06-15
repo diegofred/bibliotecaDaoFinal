@@ -17,12 +17,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
      * Creates new form MenuPrincipal
      */
     public MenuPrincipal() {
-        System.out.println("Por aca no deberia pasar");
+         System.out.println("Por aca no deberia pasar");
         initComponents();
     }
 
     public MenuPrincipal(MenuPrincipalControlador controller) {
-       System.out.println("Pasando por consrtuctor con controller de parametro 0"+controller);
+         System.out.println("Pasando por consrtuctor con controller de parametro 0"+controller);
        initComponents();
        this.controller = controller;
     }
@@ -62,11 +62,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu2.setText("Inventario");
 
         jMenuItem1.setText("ABM Autor");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
         jMenu2.add(jMenuItem1);
 
         jMenuItem2.setText("ABM Tipo Libro");
@@ -76,6 +71,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem3);
 
         jMenuItem4.setText("ABM Copia");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem4);
 
         jMenuBar1.add(jMenu2);
@@ -155,14 +155,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        System.out.println("HOola");
-        controller.opcionRegistrarLector();
+      controller.opcionRegistrarLector();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-        this.controller.opcionABMAutor();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+     controller.tablaCopia();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
