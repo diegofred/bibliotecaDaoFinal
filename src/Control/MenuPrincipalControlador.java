@@ -26,6 +26,11 @@ public class MenuPrincipalControlador {
         rl.iniciar();
         
     }
+
+    public void opcionRegistrarPrestamos() {
+      GestorPrestamo gp = new GestorPrestamo();
+      gp.iniciar();
+    }
     
     public void tablaCopia(){
         GestorABMCopia tc = new GestorABMCopia();

@@ -5,6 +5,8 @@
  */
 package entidades;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -27,7 +29,7 @@ public class Autor {
     
     @Override
     public String toString(){
-        return "\nNombre:" + this.nombre + "\nNacionalidad: " + this.nacionalidad + "\nFecha de Nacimiento: " + this.fechaNacimiento;
+        return this.nombre ;
     }
 
     public String getNombre() {

@@ -5,6 +5,7 @@
  */
 package Dao.EnMemoria;
 
+import entidades.Lector;
 import entidades.Multa;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +30,17 @@ public class MultaDaoImpEnMemoria implements Dao.MultaDao{
     @Override
     public void eliminarMulta(Multa p) {
          listaMultas.remove(p);
+    }
+
+    @Override
+    public List<Multa> obtenerMultasVigentesPorLector(Lector lectorSeleccionado) {
+        List<Multa> multasVigentes = new ArrayList<>();
+        for (Multa m : listaMultas) {
+            if (m.estaVigente()) {
+                multasVigentes.add(m);
+            }
+        }
+        return multasVigentes;
     }
 
 

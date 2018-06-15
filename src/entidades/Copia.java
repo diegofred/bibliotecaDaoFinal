@@ -24,12 +24,9 @@ public class Copia {
     
     }
     
-    public Copia(String identificador, String estado){
-        this.identificador = identificador;
-        this.estado = estado;
-    }
-        public Copia(String identificador, String estado, Libro libro){
-        this.identificador = identificador;
+
+    public Copia( String estado, Libro libro){
+  
         this.estado = estado;
         this.libro = libro;
     }
