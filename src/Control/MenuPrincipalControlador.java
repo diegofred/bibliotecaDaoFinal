@@ -36,7 +36,10 @@ public class MenuPrincipalControlador {
         GestorABMCopia tc = new GestorABMCopia();
         tc.iniciar();
     }
-    
+    public void opcionRegistrarTipoLibro() {
+        RegistrarTipoLibro rtl = new RegistrarTipoLibro();
+        rtl.iniciar();
+    }    
     
     
 }
