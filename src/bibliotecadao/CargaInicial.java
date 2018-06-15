@@ -11,16 +11,19 @@ import Dao.EnMemoria.AutorDaoImpEnMemoria;
 import Dao.EnMemoria.CopiaDaoImpEnMemoria;
 import Dao.EnMemoria.LectorDaoImpEnMemoria;
 import Dao.EnMemoria.LibroDaoImpEnMemoria;
+import Dao.EnMemoria.MultaDaoImpEnMemoria;
 import Dao.EnMemoria.PrestamoDaoImpEnMemoria;
 import Dao.EnMemoria.TipoLibroDaoImpEnMemoria;
 import Dao.LectorDao;
 import Dao.LibroDao;
+import Dao.MultaDao;
 import Dao.PrestamoDao;
 import Dao.TipoLibroDao;
 import entidades.Autor;
 import entidades.Copia;
 import entidades.Lector;
 import entidades.Libro;
+import entidades.Multa;
 import entidades.Prestamo;
 import entidades.TipoLibro;
 import java.util.Date;
@@ -40,6 +43,7 @@ public class CargaInicial {
         CopiaDao copiaDao = new CopiaDaoImpEnMemoria();
         LectorDao lectorDao = new LectorDaoImpEnMemoria();
         PrestamoDao prestamoDao = new PrestamoDaoImpEnMemoria();
+        MultaDao multaDao = new MultaDaoImpEnMemoria();
         
         
         //AUTORES
@@ -183,11 +187,21 @@ public class CargaInicial {
         lectorUno.agregarPrestamo(prestamoUno);
         prestamoDao.guardarPrestamo(prestamoUno);
         
+        // PRestamo leandro blanco ==================
+        Prestamo prestamoDos = new Prestamo();
+        prestamoDos.setFechaPrestamo(new Date(2018-1900,5-1,1));
+        prestamoDos.setFechaDevolucion(new Date (2018-1900,5,15));
+        prestamoDos.setCopia(c2OliverT);
+        prestamoDos.setLector(lectorUno);
+        lectorUno.agregarPrestamo(prestamoDos);
+        prestamoDao.guardarPrestamo(prestamoDos);
         
-   
-        
-        
-        
+        // ===============
+        Multa multaPrestamoDos = new Multa();
+        multaPrestamoDos.setCantidadDias(22);
+        multaPrestamoDos.setFecha(new Date (2018-1900,5,15));
+        multaPrestamoDos.setPrestamo(prestamoDos);
+        multaDao.guardarMulta(multaPrestamoDos);
         
         
     }

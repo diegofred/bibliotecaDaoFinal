@@ -36,7 +36,10 @@ public class MenuPrincipalControlador {
         GestorABMCopia tc = new GestorABMCopia();
         tc.iniciar();
     }
-    
+    public void tablaMultas(){
+        GestorMulta tm = new GestorMulta();
+        tm.iniciar();
+    }
     
     
 }

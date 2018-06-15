@@ -17,7 +17,7 @@ public class Multa {
     private int cantidadDias;
     private Prestamo prestamo;
     private Cancelacion cancelacion;
-    private Multa(){
+    public Multa(){
     
     }
 

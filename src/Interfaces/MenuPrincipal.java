@@ -127,6 +127,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu4.add(jMenuItem9);
 
         jMenuItem10.setText("Multas");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem10);
 
         jMenuBar1.add(jMenu4);
@@ -170,6 +175,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         this.controller.opcionRegistrarPrestamos();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        controller.tablaMultas();
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     /**
      * @param args the command line arguments
