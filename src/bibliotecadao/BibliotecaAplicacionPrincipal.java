@@ -17,9 +17,9 @@ public class BibliotecaAplicacionPrincipal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       CargaInicial.cargarDatosIniciales();
-       MenuPrincipalControlador mpc = new MenuPrincipalControlador();
-       mpc.iniciar();
+        CargaInicial.cargarDatosIniciales();
+        MenuPrincipalControlador mpc = new MenuPrincipalControlador();
+        mpc.iniciar();
     }
-    
+
 }

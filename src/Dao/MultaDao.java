@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Dao;
-import entidades.Lector;
 import entidades.Multa;
 import java.util.List;
 /**
@@ -15,6 +14,4 @@ public interface MultaDao {
     List<Multa> obtenerMultas();
     void guardarMulta(Multa p);
     void eliminarMulta(Multa p);
-
-    List<Multa> obtenerMultasVigentesPorLector(Lector lectorSeleccionado);
 }

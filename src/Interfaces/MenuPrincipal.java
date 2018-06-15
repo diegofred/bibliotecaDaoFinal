@@ -17,12 +17,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
      * Creates new form MenuPrincipal
      */
     public MenuPrincipal() {
-         System.out.println("Por aca no deberia pasar");
         initComponents();
     }
 
     public MenuPrincipal(MenuPrincipalControlador controller) {
-         System.out.println("Pasando por consrtuctor con controller de parametro 0"+controller);
        initComponents();
        this.controller = controller;
     }
@@ -65,17 +63,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem1);
 
         jMenuItem2.setText("ABM Tipo Libro");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jMenuItem3.setText("ABM Libros");
         jMenu2.add(jMenuItem3);
 
         jMenuItem4.setText("ABM Copia");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
         jMenu2.add(jMenuItem4);
 
         jMenuBar1.add(jMenu2);
@@ -91,11 +89,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu3.add(jMenuItem5);
 
         jMenuItem6.setText("Registrar Prestamo");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
         jMenu3.add(jMenuItem6);
 
         jMenuItem7.setText("Devolver Prestamo");
@@ -163,13 +156,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
       controller.opcionRegistrarLector();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-     controller.tablaCopia();
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        this.controller.opcionRegistrarPrestamos();
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        controller.opcionRegistrarTipoLibro();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments

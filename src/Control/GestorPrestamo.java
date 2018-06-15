@@ -4,12 +4,10 @@
  * and open the template in the editor.
  */
 package Control;
-
 import Dao.*;
 import entidades.*;
 import Dao.EnMemoria.*;
-import Interfaces.GestionarPrestamo.AltaPrestamo;
-import Interfaces.GestionarPrestamo.TablaPrestamos;
+import Interfaces.TablaPrestamos;
 import java.util.List;
 
 /**
@@ -18,58 +16,21 @@ import java.util.List;
  */
 public class GestorPrestamo {
     private final LibroDao libroDao;
-
     private final PrestamoDao prestamoDao;
-    //   private final CopiaDao copiaDao;
-    private final AutorDao autorDao;
-    private final TipoLibroDao tipoLibroDao;
-    private final LectorDao lectorDao;
-    private final MultaDao multaDao;
+    private final CopiaDao copiaDao;
     
-    //Pantallas
     private TablaPrestamos tp;
-    private AltaPrestamo ap;
-
-    public GestorPrestamo() {
+    
+    public GestorPrestamo(){
         this.libroDao = new LibroDaoImpEnMemoria();
         this.prestamoDao = new PrestamoDaoImpEnMemoria();
-        //    this.copiaDao = new CopiaDaoImpEnMemoria();
-        this.autorDao = new AutorDaoImpEnMemoria();
-        this.tipoLibroDao = new TipoLibroDaoImpEnMemoria();
-        this.lectorDao = new LectorDaoImpEnMemoria();
-        this.multaDao = new MultaDaoImpEnMemoria();
+        this.copiaDao = new CopiaDaoImpEnMemoria();
     }
-
-    public void iniciar() {
+    
+    public void iniciar(){
         List<Prestamo> prestamos = prestamoDao.obtenerPrestamos();
-        tp = new TablaPrestamos(prestamos, this);
+        tp = new TablaPrestamos(prestamos,this);
         tp.setVisible(true);
     }
-
-    public void opcion_alta_prestamo() {
-       List<Autor> autores = autorDao.obtenerAutores();
-       List<TipoLibro> tiposDeLibros = tipoLibroDao.obtenerTiposLibros();
-       List<Lector> lectores = lectorDao.obtenerLectores();
-       ap = new AltaPrestamo(autores,tiposDeLibros,lectores,this/*Vinculo con el control*/);
-       ap.setVisible(true);
-    }
-
-    public List<Libro> buscarLibrosYAutorTipoLibro(Autor autorSeleccionado, TipoLibro tipoLibroSeleccionado) {
-       List<Libro> librosFiltrados = libroDao.buscarLibrosYAutorTipoLibro(autorSeleccionado,tipoLibroSeleccionado) ;
-       return librosFiltrados;
-    }
-
-    public  List<Multa> obtenerMultasVigentesPorLector(Lector lectorSeleccionado) {
-       List<Multa> multasVigentes = multaDao.obtenerMultasVigentesPorLector( lectorSeleccionado);
-       return multasVigentes;
-    }
-
-    public void registrarPrestamo(Prestamo p) {
-       prestamoDao.guardarPrestamo(p);
-       ap.dispose();
-       List<Prestamo> prestamos = prestamoDao.obtenerPrestamos();
-       tp.setPrestamos(prestamos);
-       tp.refrescarTabla();
-    }
-
+    
 }

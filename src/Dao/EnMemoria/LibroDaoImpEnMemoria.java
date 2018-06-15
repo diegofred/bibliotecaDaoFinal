@@ -5,13 +5,11 @@
  */
 package Dao.EnMemoria;
 
-import entidades.Autor;
+import Dao.LibroDao;
 import entidades.Libro;
 import java.util.ArrayList;
 import java.util.List;
 import entidades.Copia;
-import entidades.TipoLibro;
-import java.util.Iterator;
 /**
  *
  * @author Alumno
@@ -39,6 +37,13 @@ public class LibroDaoImpEnMemoria implements Dao.LibroDao {
         }
         return buscado;
     }
+    public void agregarCopias(Copia copia, Libro libro){
+        for (Libro libroL : listaLibros) {
+            if (libroL.equals(libro)) {
+                libroL.agregarCopia(copia);
+            }
+        }
+    }
     
     @Override
     public void guardarLibro(Libro l) {
@@ -48,22 +53,6 @@ public class LibroDaoImpEnMemoria implements Dao.LibroDao {
     @Override
     public void eliminarLibro(Libro l) {
         listaLibros.remove(l);
-    }
-
-   
-
-    @Override
-    public List<Libro> buscarLibrosYAutorTipoLibro(Autor autorSeleccionado, TipoLibro tipoLibroSeleccionado) {
-      List<Libro> librosFiltrados = new ArrayList<>();
-      Iterator<Libro> iter = listaLibros.iterator();
-      while(iter.hasNext()){
-          Libro l = iter.next();
-          if (l.getAutor().equals(autorSeleccionado)
-                  && l.getTipoLibro().equals(tipoLibroSeleccionado)) {
-              librosFiltrados.add(l);
-          }
-      }
-      return librosFiltrados;
     }
 
 }

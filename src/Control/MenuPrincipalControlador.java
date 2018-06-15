@@ -6,7 +6,6 @@
 package Control;
 
 import Interfaces.MenuPrincipal;
-import Interfaces.RegistrarCopias.TablaCopias;
 
 /**
  *
@@ -24,19 +23,10 @@ public class MenuPrincipalControlador {
     public void opcionRegistrarLector() {
         RegistrarLector rl = new RegistrarLector();
         rl.iniciar();
+    }
+    public void opcionRegistrarTipoLibro() {
+        RegistrarTipoLibro rtl = new RegistrarTipoLibro();
+        rtl.iniciar();
+    }    
         
     }
-
-    public void opcionRegistrarPrestamos() {
-      GestorPrestamo gp = new GestorPrestamo();
-      gp.iniciar();
-    }
-    
-    public void tablaCopia(){
-        GestorABMCopia tc = new GestorABMCopia();
-        tc.iniciar();
-    }
-    
-    
-    
-}

@@ -64,21 +64,4 @@ public class Multa {
         this.cantidadDias = cantidadDias;
     }
     
-    public boolean estaVigente(){
-        if (this.cancelacion != null) {
-            return false;//Ya tiene cancelacion
-        }else{
-            long milisegundoDeUnDia = 1000*60*60*24;
-            long fechaInicioMulta = this.fecha.getTime();
-            long milisegundoFechaFin = fechaInicioMulta + milisegundoDeUnDia * this.cantidadDias;
-            long milisegundosDeHoy = (new Date()).getTime();
-            if (milisegundosDeHoy > milisegundoFechaFin) {
-                return false;
-            }else{
-                return true;
-            }
-        }
-        
-    }
-    
 }

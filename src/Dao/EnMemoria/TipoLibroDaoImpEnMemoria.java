@@ -4,30 +4,33 @@
  * and open the template in the editor.
  */
 package Dao.EnMemoria;
+
 import Dao.TipoLibroDao;
 import entidades.TipoLibro;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  *
  * @author Alumno
  */
-public class TipoLibroDaoImpEnMemoria implements TipoLibroDao{
-    
-    private static final List <TipoLibro> listaTipoLibro = new ArrayList();
+public class TipoLibroDaoImpEnMemoria implements TipoLibroDao {
+
+    private static final List<TipoLibro> listaTipoLibro = new ArrayList();
+
     @Override
     public List<TipoLibro> obtenerTiposLibros() {
         return listaTipoLibro;
     }
 
     @Override
-    public void guardarTipoLibro(TipoLibro p) {
+    public void guardarTiposLibros(TipoLibro p) {
         listaTipoLibro.add(p);
     }
 
     @Override
-    public void eliminarTipoLibro(TipoLibro p) {
+    public void eliminarTiposLibros(TipoLibro p) {
         listaTipoLibro.remove(p);
     }
-    
+
 }

@@ -10,9 +10,12 @@ package entidades;
  * @author Alumno
  */
 public class TipoLibro {
+
+    private static int siguienteNumeroLector = 3;
+
     private String nombre;
     private int cantidadMinimaLibros;
-    private String codigo;
+    private int codigo = siguienteNumeroLector++;
 
     public int getCantidadMinimaLibros() {
         return cantidadMinimaLibros;
@@ -22,7 +25,7 @@ public class TipoLibro {
         this.cantidadMinimaLibros = cantidadMinimaLibros;
     }
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
@@ -30,26 +33,21 @@ public class TipoLibro {
         this.nombre = nombre;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public TipoLibro() {
+
     }
-    
-    
-    
-    public TipoLibro(){
-    
-    }
-    public TipoLibro (String nombre){
+
+    public TipoLibro(String nombre) {
         this.nombre = nombre;
     }
-    
-    
+
     @Override
-    public String toString(){
+    public String toString() {
         return this.nombre;
     }
-    
-    public String getNombre(){
+
+    public String getNombre() {
         return this.nombre;
     }
+
 }

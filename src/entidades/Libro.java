@@ -5,7 +5,6 @@
  */
 package entidades;
 
-import Dao.EnMemoria.CopiaDaoImpEnMemoria;
 import java.util.ArrayList;
 
 /**
@@ -16,6 +15,9 @@ public class Libro {
     private String editorial;
     private int anio;
     private String titulo;
+    
+    
+    
     private Autor autor;
     private TipoLibro tipoLibro;
     private ArrayList <Copia> copias = new ArrayList<>();
@@ -91,36 +93,14 @@ public class Libro {
     
     public void agregarCopia(Copia copia){
         this.copias.add(copia);
-        copia.setLibro(this);
     }
     public void agregarCopias(int cantidad){
         int largo = this.copias.size();
         Copia copia = new Copia();
         for (int i = largo ; i < largo + cantidad ; i++) {
-            copia = new Copia(Copia.EN_BIBLIOTECA,this);
-            this.agregarCopia(copia);
+            copia = new Copia(i,Copia.EN_BIBLIOTECA,this);
+            this.copias.add(copia);
         }
-    }
-    
-    public int copiasDisponibles(){
-        int copiasDisponibles = 0;
-        for (Copia copia : copias) {
-            if (copia.getEstado().equals(Copia.EN_BIBLIOTECA)) {
-                copiasDisponibles++;
-            }
-        }
-        return copiasDisponibles;
-    }
-    
-    public Copia obtenerSiguienteCopiaDisponible(){
-        Copia elegida = null;
-        for (Copia copia : copias) {
-            if (copia.getEstado().equals(Copia.EN_BIBLIOTECA)) {
-                elegida = copia;
-                break;
-            }
-        }
-        return elegida;
     }
     
     @Override

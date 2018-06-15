@@ -5,15 +5,15 @@
  */
 package Dao;
 
-import entidades.Copia;
+import entidades.Pais;
 import java.util.List;
 
 /**
  *
  * @author Alumno
  */
-public interface CopiaDao {
-    List<Copia> obtenerLibros();
-    void guardarLibro(Copia p);
-    void eliminarLibro(Copia p);
+public interface PaisDao {
+    List<Pais> obtenerPaises();
+    void guardarPais(Pais p);
+    void eliminarPais(Pais p);
 }

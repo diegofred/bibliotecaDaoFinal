@@ -17,23 +17,22 @@ import java.util.List;
  * @author Docente
  */
 public class RegistrarLector {
-    
+
     AltaLector uiAltaLector;
     TablaLectores uiTablaLectores;
     LectorDao lectorDao;
 
     public RegistrarLector() {
-       lectorDao = new LectorDaoImpEnMemoria();
+        lectorDao = new LectorDaoImpEnMemoria();
     }
-    
-    public void iniciar(){
+
+    public void iniciar() {
         //Levantar pantalla con la tabla 
         //Buscar los datos para su tabla
         List<Lector> lectores = lectorDao.obtenerLectores();
         uiTablaLectores = new TablaLectores(this, lectores);
         uiTablaLectores.refrescarTabla();
         uiTablaLectores.setVisible(true);
-        
     }
 
     public void opcionAltaLector() {
@@ -46,19 +45,16 @@ public class RegistrarLector {
     }
 
     public void guardarLector(Lector nuevoLector) {
-     //Guardo el lector
-     lectorDao.guardarLector(nuevoLector);
-     
-     //Actualizo la tabla
-     List<Lector> lectores_actualizados = lectorDao.obtenerLectores();
-     uiTablaLectores.setLectores(lectores_actualizados);
-     uiTablaLectores.refrescarTabla();
-     
-     uiAltaLector.dispose();
-        
-        
+        //Guardo el lector
+        lectorDao.guardarLector(nuevoLector);
+
+        //Actualizo la tabla
+        List<Lector> lectores_actualizados = lectorDao.obtenerLectores();
+        uiTablaLectores.setLectores(lectores_actualizados);
+        uiTablaLectores.refrescarTabla();
+
+        uiAltaLector.dispose();
+
     }
-    
-    
-    
+
 }
