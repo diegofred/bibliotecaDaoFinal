@@ -5,6 +5,7 @@
  */
 package entidades;
 
+import Dao.EnMemoria.CopiaDaoImpEnMemoria;
 import java.util.ArrayList;
 
 /**

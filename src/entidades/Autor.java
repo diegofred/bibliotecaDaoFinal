@@ -31,11 +31,7 @@ public class Autor {
     public String toString(){
         return this.nombre ;
     }
-    public String printFechaNacimiento(){
-        DateFormat df = new SimpleDateFormat("yyyy/MM/dd");       
-        String fechaString = df.format(this.fechaNacimiento);
-        return fechaString;
-    }
+
     public String getNombre() {
         return nombre;
     }

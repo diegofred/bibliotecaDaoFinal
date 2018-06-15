@@ -5,16 +5,18 @@
  */
 package Dao;
 
-import entidades.Copia;
+import entidades.TipoLibro;
 import java.util.List;
 
 /**
  *
  * @author Alumno
  */
-public interface CopiaDao {
-    List<Copia> obtenerCopia();
-    void guardarCopia(Copia p);
-    void eliminarCopia(Copia p);
-    String siguienteIdentificador(Copia p);
+public interface TipoLibroDao1 {
+
+    List<TipoLibro> obtenerTiposLibros();
+
+    void guardarTiposLibros(TipoLibro p);
+
+    void eliminarTiposLibros(TipoLibro p);
 }

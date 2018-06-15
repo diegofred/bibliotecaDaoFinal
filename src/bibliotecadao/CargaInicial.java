@@ -86,7 +86,7 @@ public class CargaInicial {
         tipoLibroDao.guardarTipoLibro(tplPoesia);
         tipoLibroDao.guardarTipoLibro(tplTeatro);
 
-        
+   
         
 
         //LIBROS
@@ -121,51 +121,52 @@ public class CargaInicial {
         
         //COPIAS
         Copia c1hamlet = new Copia();
-        c1hamlet.setIdentificador("TE-1");
         c1hamlet.setEstado(Copia.PRESTADO);
         hamlet.agregarCopia(c1hamlet);
-        copiaDao.guardarCopia(c1hamlet);
-        
-        
+        c1hamlet.setIdentificador(copiaDao.siguienteIdentificador(c1hamlet));
+         copiaDao.guardarCopia(c1hamlet);
+         
         Copia c2hamlet = new Copia();
-        c2hamlet.setIdentificador("TE-2");
         c2hamlet.setEstado(Copia.EN_BIBLIOTECA);
         hamlet.agregarCopia(c2hamlet);
+        c2hamlet.setIdentificador(copiaDao.siguienteIdentificador(c2hamlet));
         copiaDao.guardarCopia(c2hamlet);
        
          
         Copia c3hamlet = new Copia();
-        c3hamlet.setIdentificador("TE-3");
         c3hamlet.setEstado(Copia.EN_BIBLIOTECA);
         hamlet.agregarCopia(c3hamlet);
-        copiaDao.guardarCopia(c2hamlet);
-        
+        copiaDao.guardarCopia(c3hamlet);
+        c3hamlet.setIdentificador(copiaDao.siguienteIdentificador(c3hamlet));
         
         Copia c1tratsobreTol = new Copia();
-        c1tratsobreTol.setIdentificador("EN-4");
         c1tratsobreTol.setEstado(Copia.EN_BIBLIOTECA);
         ltratadoSobroTolerancia.agregarCopia(c1tratsobreTol);
         copiaDao.guardarCopia(c1tratsobreTol);
-        
+        c1tratsobreTol.setIdentificador(copiaDao.siguienteIdentificador(c1tratsobreTol));
+         
         Copia c2tratsobreTol = new Copia();
-        c2tratsobreTol.setIdentificador("EN-5");
+       
         c2tratsobreTol.setEstado(Copia.EN_BIBLIOTECA);
         ltratadoSobroTolerancia.agregarCopia(c2tratsobreTol);
-        copiaDao.guardarCopia(c2tratsobreTol);
+         c2tratsobreTol.setIdentificador(copiaDao.siguienteIdentificador(c2tratsobreTol));
         
         Copia c1OliverT = new Copia();
-        c1OliverT.setIdentificador("NO-6");
         c1OliverT.setEstado(Copia.EN_BIBLIOTECA);
         ltratadoSobroTolerancia.agregarCopia(c1OliverT);
         copiaDao.guardarCopia(c1OliverT);
+        c1OliverT.setIdentificador(copiaDao.siguienteIdentificador(c1OliverT));
+        
+        
         
         Copia c2OliverT = new Copia();
-        c2OliverT.setIdentificador("NO-7");
         c2OliverT.setEstado(Copia.EN_BIBLIOTECA);
         ltratadoSobroTolerancia.agregarCopia(c2OliverT);
         copiaDao.guardarCopia(c2OliverT);
+        c2OliverT.setIdentificador(copiaDao.siguienteIdentificador(c2OliverT));
         
         
+ 
         //Lectores
         
         Lector lectorUno = new Lector();

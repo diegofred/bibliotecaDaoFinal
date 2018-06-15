@@ -15,10 +15,10 @@ import java.util.List;
  */
 public class CopiaDaoImpEnMemoria implements Dao.CopiaDao{
 
-    public static final List <Copia> listaCopias = new ArrayList();
-    
+    private static final List <Copia> listaCopias = new ArrayList();
+    private static int siguienteId = 1;
     @Override
-    public List<Copia> obtenerCopias() {
+    public List<Copia> obtenerCopia() {
         return listaCopias;
     }
 
@@ -30,6 +30,14 @@ public class CopiaDaoImpEnMemoria implements Dao.CopiaDao{
     @Override
     public void eliminarCopia(Copia p) {
         listaCopias.remove(p);
+    }
+
+    @Override
+    public String siguienteIdentificador(Copia p) {
+        String codigoDeTipo= p.getLibro().getTipoLibro().getCodigo();
+        String identificador = codigoDeTipo+"-"+siguienteId;
+        siguienteId++;
+        return identificador;
     }
     
 }
