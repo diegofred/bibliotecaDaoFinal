@@ -43,85 +43,128 @@ public class CargaInicial {
         
         
         //AUTORES
-        Autor a1 = new Autor();
-        a1.setNacionalidad("Española");
-        a1.setFechaNacimiento(new Date(50,5,20));
-        a1.setNombre("Autor 1");
-        autorDao.guardarAutor(a1); 
+        Autor ashakespeare = new Autor();
+        ashakespeare.setNacionalidad("Reino Unido");
+        ashakespeare.setFechaNacimiento(new Date(-336,3,1));
+        ashakespeare.setNombre("William Shakespeare");
+        autorDao.guardarAutor(ashakespeare); 
 
-        Autor a2 = new Autor();
-        a2.setNacionalidad("Argentina");
-        a2.setFechaNacimiento(new Date(50,5,20));
-        a2.setNombre("Autor 2");
-        autorDao.guardarAutor(a2); 
+        Autor aVoltaire = new Autor();
+        aVoltaire.setNacionalidad("Francia");
+        aVoltaire.setFechaNacimiento(new Date(-206,10,21));//21 de noviembre de 1694
+        aVoltaire.setNombre("Voltaire");
+        autorDao.guardarAutor(aVoltaire); 
           
-        Autor a3 = new Autor();
-        a3.setNacionalidad("Española");
-        a3.setFechaNacimiento(new Date(50,5,20));
-        a3.setNombre("Autor 3");
-        autorDao.guardarAutor(a3);
+        Autor acharlesDickens = new Autor();
+        acharlesDickens.setNacionalidad("Reino Unido");
+        acharlesDickens.setFechaNacimiento(new Date(-88,1,7));// 7 de febrero de 1812
+        acharlesDickens.setNombre("Charles Dickens");
+        autorDao.guardarAutor(acharlesDickens);
      
         //TIPOS DE LIBRO
-        TipoLibro tp1 = new TipoLibro();
-        tp1.setNombre("Novela");
-        tipoLibroDao.guardarTipoLibro(tp1);
+        TipoLibro tplNovela = new TipoLibro();
+        tplNovela.setNombre("Novela");
+        tplNovela.setCodigo("NO");
+       
+        TipoLibro tplTeatro = new TipoLibro();
+        tplTeatro.setNombre("Teatro");
+        tplTeatro.setCodigo("TE");
+    
+        TipoLibro tplPoesia = new TipoLibro();
+        tplPoesia.setNombre("Poesia");
+        tplPoesia.setCodigo("PS");
         
-        TipoLibro tp2 = new TipoLibro();
-        tp2.setNombre("Teatro");
-        tipoLibroDao.guardarTipoLibro(tp2);
+        TipoLibro tplEnsayo = new TipoLibro();
+        tplEnsayo.setNombre("ENSAYO");
+        tplEnsayo.setCodigo("EN");
         
+        
+        
+        
+        tipoLibroDao.guardarTipoLibro(tplNovela);
+        tipoLibroDao.guardarTipoLibro(tplEnsayo);
+        tipoLibroDao.guardarTipoLibro(tplPoesia);
+        tipoLibroDao.guardarTipoLibro(tplTeatro);
 
         
         
-        
+
         //LIBROS
-        Libro l1 = new Libro();
-        l1.setTitulo("Libro 1");
-        l1.setEditorial("Editorial X");
-        l1.setTipoLibro(tp1);
-        l1.setAutor(a1);
-        libroDao.guardarLibro(l1);
-        
-        Libro l2 = new Libro();
-        l2.setTitulo("Libro 2");
-        l2.setEditorial("Editorial Y");
-        l2.setTipoLibro(tp1);
-        l2.setAutor(a2);
-        libroDao.guardarLibro(l2);
+        Libro hamlet = new Libro();
+        hamlet.setTitulo("Hamlet");
+        hamlet.setEditorial("Sterling Publishing Co Inc");
+        hamlet.setTipoLibro(tplTeatro);
+        hamlet.setAnio(1609);
+        hamlet.setAutor(ashakespeare);
+        libroDao.guardarLibro(hamlet);
         
         
-        Libro l3 = new Libro();
-        l3.setTitulo("Libro 3");
-        l3.setEditorial("Editorial Z");
-        l3.setTipoLibro(tp2);
-        l3.setAutor(a3);
-        libroDao.guardarLibro(l3);
+        
+        Libro ltratadoSobroTolerancia = new Libro();
+        ltratadoSobroTolerancia.setTitulo("Tratado sobre la tolerancia");
+        ltratadoSobroTolerancia.setEditorial("Editorial Y");
+        ltratadoSobroTolerancia.setTipoLibro(tplEnsayo);
+        ltratadoSobroTolerancia.setAnio(1762);
+        ltratadoSobroTolerancia.setAutor(aVoltaire);
+        libroDao.guardarLibro(ltratadoSobroTolerancia);
+        
+        
+        Libro libroOliverTwist = new Libro();
+        libroOliverTwist.setTitulo("Oliver Twist");
+        libroOliverTwist.setEditorial("Editorial Z");
+        libroOliverTwist.setAnio(1838);
+        libroOliverTwist.setTipoLibro(tplNovela);
+        libroOliverTwist.setAutor(acharlesDickens);
+        libroDao.guardarLibro(libroOliverTwist);
+        
         
         
         //COPIAS
-        Copia c1 = new Copia();
-        c1.setIdentificador(001);
-        c1.setEstado(Copia.PRESTADO);
-        c1.setLibro(l1);
-        libroDao.agregarCopias(c1, l1);
+        Copia c1hamlet = new Copia();
+        c1hamlet.setIdentificador("TE-1");
+        c1hamlet.setEstado(Copia.PRESTADO);
+        hamlet.agregarCopia(c1hamlet);
+        copiaDao.guardarCopia(c1hamlet);
         
-        Copia c2 = new Copia();
-        c2.setIdentificador(002);
-        c2.setEstado(Copia.EN_BIBLIOTECA);
-        c2.setLibro(l2);
-        libroDao.agregarCopias(c2, l2);
         
-        Copia c3 = new Copia();
-        c3.setIdentificador(001);
-        c3.setEstado(Copia.EN_REPARACION);
-        c3.setLibro(l3);
-        libroDao.agregarCopias(c3, l3);
+        Copia c2hamlet = new Copia();
+        c2hamlet.setIdentificador("TE-2");
+        c2hamlet.setEstado(Copia.EN_BIBLIOTECA);
+        hamlet.agregarCopia(c2hamlet);
+        copiaDao.guardarCopia(c2hamlet);
+       
+         
+        Copia c3hamlet = new Copia();
+        c3hamlet.setIdentificador("TE-3");
+        c3hamlet.setEstado(Copia.EN_BIBLIOTECA);
+        hamlet.agregarCopia(c3hamlet);
+        copiaDao.guardarCopia(c2hamlet);
         
-        Copia c4 = new Copia();
-        c4.setIdentificador(002);
-        c4.setEstado(Copia.PRESTADO);
-        c4.setLibro(l3);
-        libroDao.agregarCopias(c4, l3);
+        
+        Copia c1tratsobreTol = new Copia();
+        c1tratsobreTol.setIdentificador("EN-4");
+        c1tratsobreTol.setEstado(Copia.EN_BIBLIOTECA);
+        ltratadoSobroTolerancia.agregarCopia(c1tratsobreTol);
+        copiaDao.guardarCopia(c1tratsobreTol);
+        
+        Copia c2tratsobreTol = new Copia();
+        c2tratsobreTol.setIdentificador("EN-5");
+        c2tratsobreTol.setEstado(Copia.EN_BIBLIOTECA);
+        ltratadoSobroTolerancia.agregarCopia(c2tratsobreTol);
+        copiaDao.guardarCopia(c2tratsobreTol);
+        
+        Copia c1OliverT = new Copia();
+        c1OliverT.setIdentificador("NO-6");
+        c1OliverT.setEstado(Copia.EN_BIBLIOTECA);
+        ltratadoSobroTolerancia.agregarCopia(c1OliverT);
+        copiaDao.guardarCopia(c1OliverT);
+        
+        Copia c2OliverT = new Copia();
+        c2OliverT.setIdentificador("NO-7");
+        c2OliverT.setEstado(Copia.EN_BIBLIOTECA);
+        ltratadoSobroTolerancia.agregarCopia(c2OliverT);
+        copiaDao.guardarCopia(c2OliverT);
+        
         
         //Lectores
         
@@ -134,9 +177,15 @@ public class CargaInicial {
         
         //Prestamo
         Prestamo prestamoUno = new Prestamo();
-        prestamoUno.setCopia(c4);
-        prestamoUno.setLector(lectorUno);
+        prestamoUno.setCopia(c1hamlet);
+        prestamoUno.setFechaPrestamo(new Date());
+        lectorUno.agregarPrestamo(prestamoUno);
         prestamoDao.guardarPrestamo(prestamoUno);
+        
+        
+   
+        
+        
         
         
         

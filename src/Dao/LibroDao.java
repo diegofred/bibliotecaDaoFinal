@@ -17,7 +17,6 @@ import entidades.TipoLibro;
 public interface LibroDao {
     List<Libro> obtenerLibros();
     Libro obtenerLibroPorTitulo(String nombreLibro);
-    void agregarCopias(Copia copia, Libro libro);
     void guardarLibro(Libro p);
     void eliminarLibro(Libro p);
 

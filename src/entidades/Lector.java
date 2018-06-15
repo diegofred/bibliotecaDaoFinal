@@ -115,6 +115,7 @@ public class Lector {
 
     public void agregarPrestamo(Prestamo prestamo){
         this.prestamos.add(prestamo);
+        prestamo.setLector(this);
     }    
     public boolean tieneMulta() {
         if (this.prestamos.isEmpty()) {

@@ -316,10 +316,10 @@ public class AltaPrestamo extends javax.swing.JDialog {
                         }else{
                             Prestamo p = new Prestamo();
                             p.setFechaPrestamo(new Date());
-                            p.setLector(lectorSeleccionado);
                             Copia c = libroSeleccionado.obtenerSiguienteCopiaDisponible();
                             p.setCopia(c);
                             c.setEstado(Copia.PRESTADO);
+                            lectorSeleccionado.agregarPrestamo(p);
                             this.controller.registrarPrestamo(p);
                             JOptionPane.showMessageDialog(null, "El prestamo se registro Correctamente");
                           //  p.setCopia(copia);

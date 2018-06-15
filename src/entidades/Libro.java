@@ -90,13 +90,14 @@ public class Libro {
     
     public void agregarCopia(Copia copia){
         this.copias.add(copia);
+        copia.setLibro(this);
     }
     public void agregarCopias(int cantidad){
         int largo = this.copias.size();
         Copia copia = new Copia();
         for (int i = largo ; i < largo + cantidad ; i++) {
-            copia = new Copia(i,Copia.EN_BIBLIOTECA,this);
-            this.copias.add(copia);
+            copia = new Copia(Copia.EN_BIBLIOTECA,this);
+            this.agregarCopia(copia);
         }
     }
     

@@ -13,7 +13,7 @@ import java.util.List;
  * @author Alumno
  */
 public interface CopiaDao {
-    List<Copia> obtenerLibros();
-    void guardarLibro(Copia p);
-    void eliminarLibro(Copia p);
+    List<Copia> obtenerCopias();
+    void guardarCopia(Copia c);
+    void eliminarCopia(Copia c);
 }

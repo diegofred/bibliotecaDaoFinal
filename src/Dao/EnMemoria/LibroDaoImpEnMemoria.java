@@ -39,13 +39,6 @@ public class LibroDaoImpEnMemoria implements Dao.LibroDao {
         }
         return buscado;
     }
-    public void agregarCopias(Copia copia, Libro libro){
-        for (Libro libroL : listaLibros) {
-            if (libroL.equals(libro)) {
-                libroL.agregarCopia(copia);
-            }
-        }
-    }
     
     @Override
     public void guardarLibro(Libro l) {

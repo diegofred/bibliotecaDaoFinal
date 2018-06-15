@@ -18,17 +18,17 @@ public class CopiaDaoImpEnMemoria implements Dao.CopiaDao{
     public static final List <Copia> listaCopias = new ArrayList();
     
     @Override
-    public List<Copia> obtenerLibros() {
+    public List<Copia> obtenerCopias() {
         return listaCopias;
     }
 
     @Override
-    public void guardarLibro(Copia p) {
+    public void guardarCopia(Copia p) {
         listaCopias.add(p);
     }
 
     @Override
-    public void eliminarLibro(Copia p) {
+    public void eliminarCopia(Copia p) {
         listaCopias.remove(p);
     }
     
