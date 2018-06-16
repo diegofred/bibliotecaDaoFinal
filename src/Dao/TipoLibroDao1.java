@@ -19,4 +19,6 @@ public interface TipoLibroDao1 {
     void guardarTiposLibros(TipoLibro p);
 
     void eliminarTiposLibros(TipoLibro p);
+    
+    String siguienteidtipo(TipoLibro p);
 }

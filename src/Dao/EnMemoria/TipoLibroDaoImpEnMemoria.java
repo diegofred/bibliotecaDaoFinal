@@ -15,6 +15,7 @@ import java.util.List;
 public class TipoLibroDaoImpEnMemoria implements TipoLibroDao{
     
     private static final List <TipoLibro> listaTipoLibro = new ArrayList();
+     private static int siguienteId = 1;
     @Override
     public List<TipoLibro> obtenerTiposLibros() {
         return listaTipoLibro;
@@ -28,6 +29,12 @@ public class TipoLibroDaoImpEnMemoria implements TipoLibroDao{
     @Override
     public void eliminarTipoLibro(TipoLibro p) {
         listaTipoLibro.remove(p);
+    }
+        public String siguienteIdentificador(TipoLibro p) {
+        String codigoTipoLibro= p.getNombre();
+        String identificador = codigoTipoLibro+"-"+siguienteId;
+        siguienteId++;
+        return identificador;
     }
     
 }
