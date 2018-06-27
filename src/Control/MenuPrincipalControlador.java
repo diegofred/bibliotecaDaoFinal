@@ -50,6 +50,11 @@ public class MenuPrincipalControlador {
     
     }
     
+    public void opcionAltaLibro(){
+        GestorLibro gl = new GestorLibro();
+        gl.iniciar();
+    }
+    
     
     
     

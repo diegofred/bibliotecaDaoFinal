@@ -34,7 +34,7 @@ public class AltaLibros extends javax.swing.JDialog {
     int cantidadCopias;
     
     
-    public AltaLibros(String nombreLibro,List<Autor> autores, List<TipoLibro> tiposDeLibros, GestorLibro controller) {
+    public AltaLibros(List<Autor> autores, List<TipoLibro> tiposDeLibros, GestorLibro controller) {
         initComponents();
         this.autores = autores;
         this.tiposDeLibros = tiposDeLibros;
@@ -43,9 +43,6 @@ public class AltaLibros extends javax.swing.JDialog {
         refrescarTablaLibros();
     }
 
-    public AltaLibros(List<Autor> autores, List<TipoLibro> tiposDeLibros, GestorLibro aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     private void iniciarCombos() {
 

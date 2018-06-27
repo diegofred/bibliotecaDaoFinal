@@ -18,7 +18,7 @@ public class ListaLectoresModeloTabla extends AbstractTableModel{
   
     List<Lector> lectores_tabla ;
     
-    
+
     
     public ListaLectoresModeloTabla(List<Lector> lectores_tabla) {
         this.lectores_tabla = lectores_tabla;

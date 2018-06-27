@@ -23,8 +23,11 @@ public class TablaLibros extends javax.swing.JDialog {
         initComponents();
     }
     
-    public TablaLibros(GestorLibro aThis, List<Libro> listaLibros) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public TablaLibros(GestorLibro controller, List<Libro> listaLibros) {
+        initComponents();
+      this.controller = controller;
+      this.libros = listaLibros;
+      
     }
     
     public List<Libro> getLibros() {
