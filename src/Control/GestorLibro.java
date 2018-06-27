@@ -33,7 +33,7 @@ public class GestorLibro {
 
     public void iniciar() {
         List<Libro> listaLibros = libroDao.obtenerLibros();
-        uiTablaLibros = new TablaLibros(this, listaLibros);
+        uiTablaLibros = new TablaLibros(listaLibros, this);
         uiTablaLibros.refrescarTabla();
         uiTablaLibros.setVisible(true);
     }

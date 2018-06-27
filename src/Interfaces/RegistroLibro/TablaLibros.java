@@ -23,11 +23,10 @@ public class TablaLibros extends javax.swing.JDialog {
         initComponents();
     }
     
-    public TablaLibros(GestorLibro controller, List<Libro> listaLibros) {
-        initComponents();
+    public TablaLibros(List<Libro> listaLibros, GestorLibro controller) {
+      initComponents();
       this.controller = controller;
       this.libros = listaLibros;
-      
     }
     
     public List<Libro> getLibros() {
@@ -43,14 +42,14 @@ public class TablaLibros extends javax.swing.JDialog {
         initComponents();
     }
 
-    public TablaLibros(List<Libro> libros, GestorLibro controller){
-        initComponents();
-        this.controller = controller;
-        this.libros = libros;
-    }
+//    public TablaLibros(List<Libro> libros, GestorLibro controller){
+//        initComponents();
+//        this.controller = controller;
+//        this.libros = libros;
+//    }
     
     public void refrescarTabla(){
-        tbx_libros.setModel(new ListaLibrosModeloTabla(libros));
+        this.tbx_libros.setModel(new ListaLibrosModeloTabla(libros));
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,7 +64,6 @@ public class TablaLibros extends javax.swing.JDialog {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbx_libros = new javax.swing.JTable();
         btnNuevoLibro = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -88,13 +86,6 @@ public class TablaLibros extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setText("OtroBoton");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,8 +96,6 @@ public class TablaLibros extends javax.swing.JDialog {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
                 .addComponent(btnNuevoLibro)
                 .addGap(15, 15, 15))
             .addGroup(layout.createSequentialGroup()
@@ -122,10 +111,8 @@ public class TablaLibros extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNuevoLibro)
-                    .addComponent(jButton1))
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addComponent(btnNuevoLibro)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -133,14 +120,9 @@ public class TablaLibros extends javax.swing.JDialog {
 
     private void btnNuevoLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoLibroActionPerformed
        
-           System.out.println("PresionaBoton");
         this.controller.opcionAltaLibros();
        // System.out.println("1");
     }//GEN-LAST:event_btnNuevoLibroActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println("PresionaOtroBoton");
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -187,7 +169,6 @@ public class TablaLibros extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNuevoLibro;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbx_libros;
