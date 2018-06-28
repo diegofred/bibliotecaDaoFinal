@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="entidades.Libro" table="libro">
+      <id name="id" column="id_libro">
+          <generator class="increment" />
+      </id>
+      <property name="titulo" />
+      <property name="editorial" />
+      <property name="anio" />
+      <many-to-one name="autor" class="entidades.Autor" column="id_autor"></many-to-one>
+      <many-to-one name="tipoLibro" class="entidades.TipoLibro" column="id_tipo_libro"></many-to-one>
+       <bag name="copias" inverse="true" cascade="all">
+          <key column="id_libro" not-null="true" />
+          <one-to-many class="entidades.Copia"/>
+      </bag>
+  </class>
+</hibernate-mapping>

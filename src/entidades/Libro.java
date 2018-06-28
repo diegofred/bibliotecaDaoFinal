@@ -5,20 +5,21 @@
  */
 package entidades;
 
-import Dao.EnMemoria.CopiaDaoImpEnMemoria;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Alumno
  */
 public class Libro {
+    private long id;
     private String editorial;
     private int anio;
     private String titulo;
     private Autor autor;
     private TipoLibro tipoLibro;
-    private ArrayList <Copia> copias = new ArrayList<>();
+    private List <Copia> copias = new ArrayList<>();
 
     public String getEditorial() {
         return editorial;
@@ -60,16 +61,24 @@ public class Libro {
         this.tipoLibro = tipoLibro;
     }
 
-    public ArrayList<Copia> getCopias() {
+    public List<Copia> getCopias() {
         return copias;
     }
 
-    public void setCopias(ArrayList<Copia> copias) {
+    public void setCopias(List<Copia> copias) {
         this.copias = copias;
     }
     
     public Libro(){
     
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
     
     public Libro(String editorial, int anio, String titulo, Autor autor, TipoLibro tipolibro, ArrayList copias){

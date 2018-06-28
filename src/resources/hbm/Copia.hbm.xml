@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="entidades.Copia" table="copia">
+      <id name="id" column="id_copia">
+          <generator class="increment" />
+      </id>
+      <property name="identificador" />
+      <property name="estado" />
+        <many-to-one name="libro" class="entidades.Libro" column="id_libro"></many-to-one>
+  </class>
+</hibernate-mapping>

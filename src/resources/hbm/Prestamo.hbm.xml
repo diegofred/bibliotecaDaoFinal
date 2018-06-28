@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="entidades.Prestamo" table="prestamo">
+      <id name="id" column="id_prestamo">
+          <generator class="increment" />
+      </id>
+      <property name="fechaPrestamo"  column="fecha_prestamo" type="java.util.Date" />
+      <property name="fechaDevolucion" column="fecha_devolucion" type="java.util.Date"  />
+      <many-to-one name="copia" class="entidades.Copia" column="id_copia"></many-to-one>
+      <many-to-one name="lector" class="entidades.Lector" column="id_lector"></many-to-one>
+  </class>
+</hibernate-mapping>

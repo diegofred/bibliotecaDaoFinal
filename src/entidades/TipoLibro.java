@@ -5,18 +5,25 @@
  */
 package entidades;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Alumno
  */
 public class TipoLibro {
+    private long id;
     private String nombre;
     private int cantidadMinimaLibros;
     private String codigo;
-    private ArrayList <TipoLibro> tipolibro = new ArrayList<>();
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
  
+    
  
     public int getCantidadMinimaLibros() {
         return cantidadMinimaLibros;

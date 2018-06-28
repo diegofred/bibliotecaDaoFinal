@@ -5,7 +5,6 @@
  */
 package entidades;
 
-import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -17,24 +16,29 @@ import java.util.List;
  * @author Alumno
  */
 public class Lector {
-    private static int siguienteNumeroLector = 1;
             
             
-            
+    private long id;         
     private int dni;
     private String apellido;
     private String nombre;
-    private int numeroLector= siguienteNumeroLector++;
+    private int numeroLector;
+
+ 
     
     
    /// private Multa multa;
-    private ArrayList<Prestamo> prestamos = new ArrayList<>();
+    private List<Prestamo> prestamos = new ArrayList<>();
 
     public Lector(int dni, String apellido, String nombre) {
         this.dni = dni;
         this.apellido = apellido;
         this.nombre= nombre;
     
+    }
+
+    public void setNumeroLector(int numeroLector) {
+        this.numeroLector = numeroLector;
     }
 
     
@@ -51,7 +55,13 @@ public class Lector {
     public int getNumeroLector() {
         return numeroLector;
     }
-    
+       public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
     public Lector(){
     
     }
@@ -104,13 +114,14 @@ public class Lector {
     }
 
 
-    public ArrayList<Prestamo> getPrestamos() {
+    public List<Prestamo> getPrestamos() {
         return prestamos;
     }
 
-    public void setPrestamos(ArrayList<Prestamo> prestamos) {
+    public void setPrestamos(List<Prestamo> prestamos) {
         this.prestamos = prestamos;
     }
+    
 
     public void agregarPrestamo(Prestamo prestamo){
         this.prestamos.add(prestamo);

@@ -14,6 +14,7 @@ import java.util.Date;
  * @author Alumno
  */
 public class Autor {
+    private long id;
     private String nombre;
     private String nacionalidad;
     private Date fechaNacimiento;
@@ -21,10 +22,27 @@ public class Autor {
     public Autor(){
     
     }
+
+    public Autor(long id, String nombre, String nacionalidad, Date fechaNacimiento) {
+        this.id = id;
+        this.nombre = nombre;
+        this.nacionalidad = nacionalidad;
+        this.fechaNacimiento = fechaNacimiento;
+    }
+     
+
     public Autor(String nombre, String nacionalidad, Date fechaNacimiento){
         this.fechaNacimiento = fechaNacimiento;
         this.nacionalidad = nacionalidad;
         this.nombre = nombre;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
     
     @Override

@@ -12,10 +12,19 @@ import java.util.Date;
  * @author Alumno
  */
 public class Cancelacion {
+    private long id;
     private double valorDiaPendiente;
     private Date fechaCancelacion;
     private int cantidadDias;
     private Multa multa;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public double getValorDiaPendiente() {
         return valorDiaPendiente;
