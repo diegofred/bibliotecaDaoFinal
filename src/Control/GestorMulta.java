@@ -5,7 +5,7 @@
  */
 package Control;
 
-import Dao.EnMemoria.MultaDaoImpEnMemoria;
+import Dao.DaoFactory;
 import Dao.MultaDao;
 import Interfaces.RegistrarMultas.TablaMultas;
 import entidades.Multa;
@@ -16,21 +16,21 @@ import java.util.List;
  * @author leandro
  */
 public class GestorMulta {
+
     private final MultaDao multaDao;
-    
-   private TablaMultas tm;
+
+    private TablaMultas tm;
 
     public GestorMulta() {
-        this.multaDao = new MultaDaoImpEnMemoria();
+        this.multaDao = (MultaDao) DaoFactory.obtenerDao(MultaDao.class.getName());
     }
-    
-    public void iniciar(){
-        List <Multa> multas = multaDao.obtenerMultas();
-        tm = new TablaMultas(this,multas);
+
+    public void iniciar() {
+        List<Multa> multas = multaDao.obtenerMultas();
+        tm = new TablaMultas(this, multas);
         tm.refrescarTabla();
         tm.setVisible(true);
-        
+
     }
-    
-    
+
 }

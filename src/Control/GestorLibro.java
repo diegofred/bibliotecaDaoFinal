@@ -20,15 +20,17 @@ public class GestorLibro {
 
     private final LibroDao libroDao;
     private final AutorDao autorDao;
-    private final TipoLibroDao tipoLibroDao;         
-    
+    private final TipoLibroDao tipoLibroDao;
+
     private TablaLibros uiTablaLibros;
     private AltaLibros uiAltaLibros;
-    
+
     public GestorLibro() {
-        this.libroDao = new LibroDaoImpEnMemoria();
-        this.autorDao = new AutorDaoImpEnMemoria();
-        this.tipoLibroDao = new TipoLibroDaoImpEnMemoria();
+
+        this.libroDao = (LibroDao) DaoFactory.obtenerDao(LibroDao.class.getName());
+        this.tipoLibroDao = (TipoLibroDao) DaoFactory.obtenerDao(TipoLibroDao.class.getName());
+        this.autorDao = (AutorDao) DaoFactory.obtenerDao(AutorDao.class.getName());
+
     }
 
     public void iniciar() {
@@ -37,23 +39,23 @@ public class GestorLibro {
         uiTablaLibros.refrescarTabla();
         uiTablaLibros.setVisible(true);
     }
-    
+
     public void opcionAltaLibros() {
         System.out.println("Opcion alta");
         List<Autor> autores = autorDao.obtenerAutores();
         List<TipoLibro> tiposDeLibros = tipoLibroDao.obtenerTiposLibros();
-        uiAltaLibros = new AltaLibros(autores, tiposDeLibros,this);
+        uiAltaLibros = new AltaLibros(autores, tiposDeLibros, this);
         uiAltaLibros.setVisible(true);
     }
-    
-    public void guardarLibro(Libro nuevoLibro){
-    
+
+    public void guardarLibro(Libro nuevoLibro) {
+
         libroDao.guardarLibro(nuevoLibro);
         List<Libro> librosActualizados = libroDao.obtenerLibros();
         uiTablaLibros.setLibros(librosActualizados);
         uiTablaLibros.refrescarTabla();
         uiAltaLibros.dispose();
-        
+
     }
 
 }

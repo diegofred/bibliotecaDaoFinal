@@ -16,12 +16,21 @@ public class Copia {
     public final static String EN_REPARACION = "En reparacion";
     public final static String EN_RETRASO = "En retraso";
     
+    private long id;
     private String identificador;
     private String estado;
     private Libro libro;
     
     public Copia(){
     
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
     
 

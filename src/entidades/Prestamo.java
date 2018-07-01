@@ -18,6 +18,15 @@ public class Prestamo {
     private Date fechaDevolucion;
     private Copia copia;
     private Lector lector;
+    private long id;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public Date getFechaPrestamo() {
         return fechaPrestamo;
@@ -59,7 +68,7 @@ public class Prestamo {
         this.fechaPrestamo = fechaPrestamo;
         this.fechaDevolucion = fechaDevolucion;
         this.copia = copia;
-        this.copia.setEstado(Copia.PRESTADO)  ;
+        this.copia.setEstado(Copia.PRESTADO);
         this.lector = lector;
         this.lector.agregarPrestamo(this);
     }
@@ -79,18 +88,18 @@ public class Prestamo {
 
     public boolean correspondeMulta() {
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(this.getFechaPrestamo()); 
+        calendar.setTime(this.getFechaPrestamo());
         calendar.add(Calendar.DAY_OF_YEAR, 30);
-        Date fechaDevolucionEsperada =  calendar.getTime();
+        Date fechaDevolucionEsperada = calendar.getTime();
         if (fechaDevolucionEsperada.after(this.fechaDevolucion)) {
             return false;
         } else {
             return true;
         }
     }
-    
-    public boolean estaFinalizado(){
-       return (fechaDevolucion != null);
+
+    public boolean estaFinalizado() {
+        return (fechaDevolucion != null);
     }
-    
+
 }

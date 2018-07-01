@@ -36,5 +36,10 @@ public class TipoLibroDaoImpEnMemoria implements TipoLibroDao{
         siguienteId++;
         return identificador;
     }
+
+    @Override
+    public void actualizarTipoLibro(TipoLibro tl) {
+       
+    }
     
 }

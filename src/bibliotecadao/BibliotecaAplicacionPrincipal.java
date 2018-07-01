@@ -6,6 +6,7 @@
 package bibliotecadao;
 
 import Control.MenuPrincipalControlador;
+import Dao.hibernate.ConfiguracionHibernate;
 
 /**
  *
@@ -17,7 +18,8 @@ public class BibliotecaAplicacionPrincipal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       CargaInicial.cargarDatosIniciales();
+  //     CargaInicial.cargarDatosIniciales();
+       //ConfiguracionHibernate.getSessionFactory();
        MenuPrincipalControlador mpc = new MenuPrincipalControlador();
        mpc.iniciar();
     }

@@ -1,7 +1,6 @@
 package Dao.EnMemoria;
 
 
-import Dao.CancelacionDao;
 import entidades.Cancelacion;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +32,11 @@ public class CancelacionDaoImpEnMemoria implements Dao.CancelacionDao{
     @Override
     public void eliminarCancelacion(Cancelacion c) {
        listaCancelacion.remove(c);
+    }
+
+    @Override
+    public void actualizarCancelacion(Cancelacion c) {
+  
     }
     
 

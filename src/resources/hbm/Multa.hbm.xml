@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="entidades.Multa" table="multa">
+      <id name="id" column="id_multa">
+          <generator class="increment" />
+      </id>
+      <property name="fecha"  column="fecha" type="java.util.Date" />
+      <property name="cantidadDias"  column="cantidad_dias"  />
+      <many-to-one name="prestamo" class="entidades.Prestamo" unique="true" column="id_prestamo"></many-to-one>
+      <many-to-one name="cancelacion" class="entidades.Cancelacion" unique="true" column="id_cancelacion"></many-to-one>
+  </class>
+</hibernate-mapping>

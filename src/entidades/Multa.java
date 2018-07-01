@@ -13,6 +13,7 @@ import entidades.Prestamo;
  * @author Alumno
  */
 public class Multa {
+    private long id;
     private Date fecha;
     private int cantidadDias;
     private Prestamo prestamo;
@@ -20,6 +21,14 @@ public class Multa {
     
     public Multa(){
     
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
 

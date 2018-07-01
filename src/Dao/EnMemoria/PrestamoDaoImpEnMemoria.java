@@ -42,5 +42,10 @@ public class PrestamoDaoImpEnMemoria implements Dao.PrestamoDao {
         }
         return prestamosNoDevueltos;
     }
+
+    @Override
+    public void actualizarPrestamo(Prestamo p) {
+       
+    }
     
 }

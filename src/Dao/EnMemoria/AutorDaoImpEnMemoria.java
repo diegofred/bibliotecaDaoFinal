@@ -32,5 +32,10 @@ public class AutorDaoImpEnMemoria implements Dao.AutorDao{
     public void eliminarAutor(Autor a) {
         listaAutores.remove(a);
     }
+
+    @Override
+    public void actualizarAutor(Autor a) {
+       
+    }
     
 }

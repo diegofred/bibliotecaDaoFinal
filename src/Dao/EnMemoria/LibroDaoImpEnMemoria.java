@@ -9,7 +9,6 @@ import entidades.Autor;
 import entidades.Libro;
 import java.util.ArrayList;
 import java.util.List;
-import entidades.Copia;
 import entidades.TipoLibro;
 import java.util.Iterator;
 /**
@@ -64,6 +63,11 @@ public class LibroDaoImpEnMemoria implements Dao.LibroDao {
           }
       }
       return librosFiltrados;
+    }
+
+    @Override
+    public void actualizarLibro(Libro p) {
+      
     }
 
 }
