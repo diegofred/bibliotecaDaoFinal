@@ -18,8 +18,8 @@ public class BibliotecaAplicacionPrincipal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       CargaInicial.cargarDatosIniciales();
-       ConfiguracionHibernate.getSessionFactory();
+  //     CargaInicial.cargarDatosIniciales();
+       //ConfiguracionHibernate.getSessionFactory();
        MenuPrincipalControlador mpc = new MenuPrincipalControlador();
        mpc.iniciar();
     }

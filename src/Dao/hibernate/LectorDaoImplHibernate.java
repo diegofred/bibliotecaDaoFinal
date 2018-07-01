@@ -21,33 +21,32 @@ public class LectorDaoImplHibernate extends DaoImpHibernate implements LectorDao
 
     @Override
     public List<Lector> obtenerLectores() {
-        Session session = sessionFactory.openSession();
-        List<Lector> retorno = session.createQuery("from lector").list();
-        session.close();
+        Session session = getSession();
+        List<Lector> retorno = session.createQuery("from Lector").list();
         return retorno;
     }
 
     @Override
     public void guardarLector(Lector p) {
-        Session session = sessionFactory.openSession();
+        Session session = getSession();
         session.beginTransaction();
         session.save(p);
         session.getTransaction().commit();
-        session.close();
+        
     }
 
     @Override
     public void eliminarLector(Lector p) {
-        Session session = sessionFactory.openSession();
+        Session session = getSession();
         session.beginTransaction();
         session.delete(p);
         session.getTransaction().commit();
-        session.close();
+        
     }
 
     @Override
     public Lector obtenerLectorPorDni(int dni) {
-        Session session = sessionFactory.openSession();
+        Session session = getSession();
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Lector> query = builder.createQuery(Lector.class);
@@ -57,9 +56,17 @@ public class LectorDaoImplHibernate extends DaoImpHibernate implements LectorDao
 
         Lector lector = session.createQuery(query).uniqueResult();
 
-        session.close();
+        
 
         return lector;
+    }
+
+    @Override
+    public void actualizarLector(Lector a) {
+        Session session = getSession();
+        session.beginTransaction();
+        session.update(a);
+        session.getTransaction().commit();
     }
 
 }

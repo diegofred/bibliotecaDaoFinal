@@ -10,5 +10,5 @@ package Control;
  * @author Alumno
  */
 public class GestorLibro {
-    
+
 }

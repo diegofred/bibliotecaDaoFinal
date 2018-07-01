@@ -19,28 +19,35 @@ public class AutorDaoImpHibernate extends  DaoImpHibernate implements AutorDao{
     
     @Override
     public List<Autor> obtenerAutores() {
-        Session session = sessionFactory.openSession();
-        List<Autor> retorno = session.createQuery("from autor").list();
-        session.close();
+        Session session = getSession();
+        List<Autor> retorno = session.createQuery("from Autor").list();
         return retorno;
     }
 
     @Override
     public void guardarAutor(Autor a) {
-        Session session = sessionFactory.openSession();
+        Session session = getSession();
         session.beginTransaction();
         session.save(a);
         session.getTransaction().commit();
-        session.close();
+        
     }
 
     @Override
     public void eliminarAutor(Autor a) {
-        Session session = sessionFactory.openSession();
+        Session session = getSession();
         session.beginTransaction();
         session.delete(a);
         session.getTransaction().commit();
-        session.close();
+        
+    }
+
+    @Override
+    public void actualizarAutor(Autor a) {
+        Session session = getSession();
+        session.beginTransaction();
+        session.update(a);
+        session.getTransaction().commit();
     }
     
 }

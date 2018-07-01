@@ -16,5 +16,5 @@ public interface AutorDao {
     List<Autor> obtenerAutores();
     void guardarAutor(Autor a);
     void eliminarAutor(Autor a);
-   // void actualizarAutor(Autor a);
+    void actualizarAutor(Autor a);
 }

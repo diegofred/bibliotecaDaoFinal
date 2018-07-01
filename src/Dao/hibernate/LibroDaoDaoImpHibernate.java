@@ -7,7 +7,6 @@ package Dao.hibernate;
 
 import Dao.LibroDao;
 import entidades.Autor;
-import entidades.Lector;
 import entidades.Libro;
 import entidades.TipoLibro;
 import java.util.List;
@@ -24,46 +23,67 @@ public class LibroDaoDaoImpHibernate extends DaoImpHibernate implements LibroDao
 
     @Override
     public List<Libro> obtenerLibros() {
-        Session session = sessionFactory.openSession();
-        List<Libro> retorno = session.createQuery("from libro").list();
-        session.close();
+        Session session = getSession();
+        List<Libro> retorno = session.createQuery("from Libro").list();
+
         return retorno;
     }
 
     @Override
     public Libro obtenerLibroPorTitulo(String nombreLibro) {
-        Session session = sessionFactory.openSession();
+        Session session = getSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Libro> query = builder.createQuery(Libro.class);
         Root<Libro> root = query.from(Libro.class);
         query.select(root);
         query.where(builder.equal(root.get("titulo"), nombreLibro));
         Libro libro = session.createQuery(query).uniqueResult();
-        session.close();
+
         return libro;
     }
 
     @Override
     public void guardarLibro(Libro p) {
-        Session session = sessionFactory.openSession();
+        Session session = getSession();
         session.beginTransaction();
         session.save(p);
         session.getTransaction().commit();
-        session.close();
+
     }
 
     @Override
     public void eliminarLibro(Libro p) {
-        Session session = sessionFactory.openSession();
+        Session session = getSession();
         session.beginTransaction();
         session.delete(p);
         session.getTransaction().commit();
-        session.close();
+
     }
 
     @Override
     public List<Libro> buscarLibrosYAutorTipoLibro(Autor autorSeleccionado, TipoLibro tipoLibroSeleccionado) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        Session session = getSession();
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<Libro> query = builder.createQuery(Libro.class);
+        Root<Libro> root = query.from(Libro.class);
+        query.select(root)
+                .where(
+                        builder.and(
+                                builder.equal(root.get("autor"), autorSeleccionado))
+                                ,builder.equal(root.get("tipoLibro"), tipoLibroSeleccionado));
+
+        List<Libro> librosFiltrados = session.createQuery(query).getResultList();
+
+        return librosFiltrados;
+    }
+
+    @Override
+    public void actualizarLibro(Libro p) {
+        Session session = getSession();
+        session.beginTransaction();
+        session.update(p);
+        session.getTransaction().commit();
     }
 
 }

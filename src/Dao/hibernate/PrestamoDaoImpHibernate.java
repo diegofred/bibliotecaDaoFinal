@@ -21,45 +21,53 @@ public class PrestamoDaoImpHibernate  extends  DaoImpHibernate implements Presta
 
     @Override
     public List<Prestamo> obtenerPrestamos() {
-        Session session = sessionFactory.openSession();
-        List<Prestamo> retorno = session.createQuery("from prestamo").list();
-        session.close();
+         Session session = getSession();
+        List<Prestamo> retorno = session.createQuery("from Prestamo").list();
+        
         return retorno;
     }
 
     @Override
     public void guardarPrestamo(Prestamo p) {
-        Session session = sessionFactory.openSession();
+          Session session = getSession();
         session.beginTransaction();
         session.save(p);
         session.getTransaction().commit();
-        session.close();
+        
     }
 
     @Override
     public void eliminarPrestamo(Prestamo p) {
-        Session session = sessionFactory.openSession();
+          Session session = getSession();
         session.beginTransaction();
         session.delete(p);
         session.getTransaction().commit();
-        session.close();
+        
     }
 
     @Override
     public List<Prestamo> obtenerPrestamosNoDevueltos() {
-        Session session = sessionFactory.openSession();
+         Session session = getSession();
 
         CriteriaBuilder builder = session.getCriteriaBuilder();
         CriteriaQuery<Prestamo> query = builder.createQuery(Prestamo.class);
         Root<Prestamo> root = query.from(Prestamo.class);
         query.select(root);
-        query.where(builder.equal(root.get("fecha_devolucion"), null));
+        query.where(builder.isNull(root.get("fechaDevolucion")));
 
         List<Prestamo> prestamos = session.createQuery(query).list();
 
-        session.close();
+        
 
         return prestamos;
+    }
+
+    @Override
+    public void actualizarPrestamo(Prestamo p) {
+        Session session = getSession();
+        session.beginTransaction();
+        session.update(p);
+        session.getTransaction().commit();
     }
     
 }

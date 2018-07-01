@@ -7,7 +7,6 @@ package Interfaces.RegistroAutor;
 
 import Control.GestorAutor;
 import Interfaces.ModelosTabla.ListaAutoresModeloTabla;
-import Interfaces.ModelosTabla.ListaLectoresModeloTabla;
 import entidades.Autor;
 import java.util.List;
 
@@ -17,8 +16,9 @@ import java.util.List;
  */
 public class ListarAutores extends javax.swing.JDialog {
     
-    List <Autor> listaAutores;
+    private List <Autor> listaAutores;
     GestorAutor controller;
+    
     /**
      * Creates new form ListarAutores
      */
@@ -31,6 +31,10 @@ public class ListarAutores extends javax.swing.JDialog {
         this.controller = controller;
         this.listaAutores = listaAutores;
         this.refrescarTabla();
+    }
+    
+    public void setListaAutores(List<Autor> listaAutores){
+        this.listaAutores = listaAutores;
     }
 
     /**

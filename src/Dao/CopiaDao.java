@@ -17,4 +17,5 @@ public interface CopiaDao {
     void guardarCopia(Copia p);
     void eliminarCopia(Copia p);
     String siguienteIdentificador(Copia p);
+    void actualizarCopia(Copia c);
 }

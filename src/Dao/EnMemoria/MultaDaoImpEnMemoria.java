@@ -43,6 +43,11 @@ public class MultaDaoImpEnMemoria implements Dao.MultaDao{
         return multasVigentes;
     }
 
+    @Override
+    public void actualizarMulta(Multa m) {
+        
+    }
+
 
     
 

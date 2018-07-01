@@ -5,6 +5,7 @@
  */
 package Dao.hibernate;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 /**
@@ -12,12 +13,13 @@ import org.hibernate.SessionFactory;
  * @author Diego
  */
 public class DaoImpHibernate{
-   protected SessionFactory sessionFactory;
 
-   public DaoImpHibernate(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-   }
+   private Session session;
+ 
    public DaoImpHibernate() {
-        this.sessionFactory = ConfiguracionHibernate.getSessionFactory();
+    
+   }
+   public Session getSession(){
+      return ConfiguracionHibernate.getSession();
    }
 }

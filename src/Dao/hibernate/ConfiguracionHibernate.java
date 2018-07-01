@@ -7,6 +7,7 @@ package Dao.hibernate;
 
 
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
@@ -21,6 +22,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 public class ConfiguracionHibernate {
 
     private static final SessionFactory sessionFactory;
+    private  static Session session;
     
     static {
         try {
@@ -38,7 +40,10 @@ public class ConfiguracionHibernate {
         }
     }
     
-    public static SessionFactory getSessionFactory() {
-        return sessionFactory;
+    public static Session getSession() {
+        if (session == null || !session.isOpen()) {
+            session = sessionFactory.openSession();
+        }
+        return session;
     }
 }

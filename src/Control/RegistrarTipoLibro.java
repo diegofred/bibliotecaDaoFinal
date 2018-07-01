@@ -5,7 +5,7 @@
  */
 package Control;
 
-import Dao.EnMemoria.TipoLibroDaoImpEnMemoria;
+import Dao.DaoFactory;
 import Dao.TipoLibroDao;
 import Interfaces.RegistrarTipoLibro.AltaTipoLibro;
 import Interfaces.RegistrarTipoLibro.TablaTiposLibros;
@@ -20,14 +20,14 @@ public class RegistrarTipoLibro {
 
     AltaTipoLibro uiAltaTipos;
     TablaTiposLibros uiTablaTipos;
-    TipoLibroDao tipoDao;
+    TipoLibroDao tipoLibroDao;
 
     public RegistrarTipoLibro() {
-        tipoDao = new TipoLibroDaoImpEnMemoria();
+        this.tipoLibroDao = (TipoLibroDao) DaoFactory.obtenerDao(TipoLibroDao.class.getName());
     }
 
     public void iniciar() {
-        List<TipoLibro> tipos = tipoDao.obtenerTiposLibros();
+        List<TipoLibro> tipos = tipoLibroDao.obtenerTiposLibros();
         uiTablaTipos = new TablaTiposLibros(this, tipos);
         uiTablaTipos.refrescarTabla();
         uiTablaTipos.setVisible(true);
@@ -39,9 +39,9 @@ public class RegistrarTipoLibro {
     }
 
     public void guardarTipoLibro(TipoLibro nueTipoLibro) {
-        tipoDao.guardarTipoLibro(nueTipoLibro);
+        tipoLibroDao.guardarTipoLibro(nueTipoLibro);
 
-        List<TipoLibro> tiposactualizados = tipoDao.obtenerTiposLibros();
+        List<TipoLibro> tiposactualizados = tipoLibroDao.obtenerTiposLibros();
         uiTablaTipos.setTipos(tiposactualizados);
         uiTablaTipos.refrescarTabla();
         uiAltaTipos.dispose();

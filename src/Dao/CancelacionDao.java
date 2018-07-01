@@ -17,4 +17,5 @@ public interface CancelacionDao {
     List <Cancelacion> obtenerCancelaciones();
     void guardarCancelacion(Cancelacion c);
     void eliminarCancelacion(Cancelacion c);
+    void actualizarCancelacion(Cancelacion c);
 }

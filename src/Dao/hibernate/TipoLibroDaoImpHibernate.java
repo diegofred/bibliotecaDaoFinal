@@ -18,28 +18,36 @@ public class TipoLibroDaoImpHibernate extends DaoImpHibernate implements TipoLib
 
     @Override
     public List<TipoLibro> obtenerTiposLibros() {
-        Session session = sessionFactory.openSession();
-        List<TipoLibro> retorno = session.createQuery("from tipo_libro").list();
-        session.close();
+          Session session = getSession();
+        List<TipoLibro> retorno = session.createQuery("from TipoLibro").list();
+        
         return retorno;
     }
 
     @Override
     public void guardarTipoLibro(TipoLibro p) {
-        Session session = sessionFactory.openSession();
+         Session session = getSession();
         session.beginTransaction();
         session.save(p);
         session.getTransaction().commit();
-        session.close();
+        
     }
 
     @Override
     public void eliminarTipoLibro(TipoLibro p) {
-        Session session = sessionFactory.openSession();
+          Session session = getSession();
         session.beginTransaction();
         session.delete(p);
         session.getTransaction().commit();
-        session.close();
+        
+    }
+
+    @Override
+    public void actualizarTipoLibro(TipoLibro tl) {
+        Session session = getSession();
+        session.beginTransaction();
+        session.update(tl);
+        session.getTransaction().commit();
     }
     
 }

@@ -4,15 +4,23 @@
  * and open the template in the editor.
  */
 package Dao;
+
 import entidades.Prestamo;
 import java.util.List;
+
 /**
  *
  * @author Alumno
  */
 public interface PrestamoDao {
+
     List<Prestamo> obtenerPrestamos();
+
     void guardarPrestamo(Prestamo p);
+
     void eliminarPrestamo(Prestamo p);
+
+    void actualizarPrestamo(Prestamo p);
+
     List<Prestamo> obtenerPrestamosNoDevueltos();
 }

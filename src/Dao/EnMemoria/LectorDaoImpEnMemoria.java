@@ -43,5 +43,10 @@ public class LectorDaoImpEnMemoria implements Dao.LectorDao{
         return null;//no lo encontro
     }
 
+    @Override
+    public void actualizarLector(Lector a) {
+      
+    }
+
     
 }

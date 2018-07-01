@@ -8,6 +8,6 @@
       <property name="fechaPrestamo"  column="fecha_prestamo" type="java.util.Date" />
       <property name="fechaDevolucion" column="fecha_devolucion" type="java.util.Date"  />
       <many-to-one name="copia" class="entidades.Copia" column="id_copia"></many-to-one>
-      <many-to-one name="lector" class="entidades.Lector" column="id_lector"></many-to-one>
+      <many-to-one name="lector" class="entidades.Lector"  column="id_lector"></many-to-one>
   </class>
 </hibernate-mapping>

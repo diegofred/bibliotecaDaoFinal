@@ -15,6 +15,6 @@ public interface MultaDao {
     List<Multa> obtenerMultas();
     void guardarMulta(Multa p);
     void eliminarMulta(Multa p);
-
+    void actualizarMulta(Multa m);
     List<Multa> obtenerMultasVigentesPorLector(Lector lectorSeleccionado);
 }

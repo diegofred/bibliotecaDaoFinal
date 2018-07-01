@@ -8,7 +8,6 @@ package Dao;
 import entidades.Autor;
 import entidades.Libro;
 import java.util.List;
-import entidades.Copia;
 import entidades.TipoLibro;
 /**
  *
@@ -19,6 +18,7 @@ public interface LibroDao {
     Libro obtenerLibroPorTitulo(String nombreLibro);
     void guardarLibro(Libro p);
     void eliminarLibro(Libro p);
+    void actualizarLibro(Libro p);
 
 
     List<Libro> buscarLibrosYAutorTipoLibro(Autor autorSeleccionado, TipoLibro tipoLibroSeleccionado);
