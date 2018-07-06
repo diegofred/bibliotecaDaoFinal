@@ -141,6 +141,7 @@ public class AltaTipoLibro extends javax.swing.JDialog {
             TipoLibro nuevoTipo = new TipoLibro();
             nuevoTipo.setNombre(txt_nombre.getText());
             nuevoTipo.setCantidadMinimaLibros(Integer.parseInt(txt_canmin.getText()));
+            nuevoTipo.setCodigo(txt_codigo.getText());
             controller.guardarTipoLibro(nuevoTipo);
             JOptionPane.showMessageDialog(null, "El tipo de libro ha sido registrado");
         }
